@@ -1,14 +1,28 @@
 
 #mainContent {
     text-align: center;
+    margin: 0 auto;
+    height: 400px;
+    width: 70%;
 }
 
 #carousel {
-    margin-top: 30px;
+    margin-top: 50px;
+}
+
+.image {
+    height: 200px;
+    width: 200px;
+}
+
+a, a:hover{
+    text-decoration: none;
 }
 
 .github {
+    display: block;
     font-size: 20px;
+    margin: 20px auto 10px auto;
 }
 
 .main {
@@ -30,6 +44,11 @@
     display: inline-block;
 }
 
+.nav-button:hover, .index-point:hover {
+    cursor: pointer;
+}
+
 .index-point-active {
     background-color: red;
 }
+

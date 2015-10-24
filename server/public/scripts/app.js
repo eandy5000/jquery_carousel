@@ -1,5 +1,6 @@
 var peopleArray;
 var indexTracker = 0;
+var timer;
 
 $(document).ready(function(){
     //Get data from server
@@ -25,9 +26,18 @@ function onSuccess(data) {
 
     updateIndexPoints();
 
+    ///////// Pro Mode //////////
+    timer = setInterval(nextSlide, 10000);
+
     $("#next").on('click', nextSlide);
     $("#prev").on('click', prevSlide);
 
+    $(".index-point").on('click', function(event){
+        console.log(event.target.id.slice(5));
+        var id = event.target.id.slice(5);
+        indexTracker = parseInt(id);
+        updateIndexPoints();
+    });
 }
 
 function createCarousel(array) {
@@ -60,6 +70,10 @@ function nextSlide() {
     }
 
     updateIndexPoints();
+
+    //Pro Mode: The code below (2 lines) clears out the timer and reset it
+    clearInterval(timer);
+    timer = setInterval(nextSlide, 10000);
 }
 
 //This function updates the indexTracker variable when the "Prev" button is clicked
@@ -70,6 +84,10 @@ function prevSlide() {
     }
 
     updateIndexPoints();
+
+    //Pro Mode: The code below (2 lines) clears out the timer and reset it
+    clearInterval(timer);
+    timer = setInterval(nextSlide, 10000);
 }
 
 //This function lets user know which index point (or dot) he or she is on
@@ -85,9 +103,19 @@ function updateIndexPoints() {
 }
 
 function updateDom(){
-    $("#mainContent").empty();
-    $("#mainContent").append("<h1 class='name page-header'>" + peopleArray[indexTracker].name + "</h1>");
-    $("#mainContent").append("<p class='github'>" + peopleArray[indexTracker].github + "</p>");
-    $("#mainContent").append("<p class='shoutout'>" + peopleArray[indexTracker].shoutout + "</p>");
+    //$("#mainContent").empty();
+    //$("#mainContent").append("<h1 class='name page-header'>" + peopleArray[indexTracker].name + "</h1>");
+    //$("#mainContent").append("<p class='github'>" + peopleArray[indexTracker].github + "</p>");
+    //$("#mainContent").append("<p class='shoutout'>" + peopleArray[indexTracker].shoutout + "</p>");
 
+    ////////// Hard Mode //////////
+    $("#mainContent").fadeOut(300, function() {
+        $(this).empty()
+            .append("<h1 class='name page-header'>" + peopleArray[indexTracker].name + "</h1>")
+            .append("<img class='image' src='" + peopleArray[indexTracker].imageURL + "'>")
+            ///////// Master Mode /////////
+            .append("<a class='github' href='" + peopleArray[indexTracker].github + "'>GitHub Link: " + peopleArray[indexTracker].github + "</a>")
+            .append("<p class='shoutout'>\"" + peopleArray[indexTracker].shoutout + "\"</p>")
+            .fadeIn(300);
+    });
 }
