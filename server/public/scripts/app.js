@@ -101,7 +101,7 @@ $('.jumbotron').on('click', '.auto', function(){
     } else {
         carouselRunning = false;
     }
-    console.log(carouselRunning);
+   
 });
 
 
