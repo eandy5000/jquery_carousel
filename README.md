@@ -1,4 +1,6 @@
-# Zeta Weekend Challenge 02
+# I took this old assignment and updated and improved it. Completed master mode
+
+## Zeta Weekend Challenge 02
 
 Hello Primers!
 
