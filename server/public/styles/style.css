@@ -1,0 +1,17 @@
+.prev {
+    background: #333;
+    color:white;
+    margin-left: 10px;
+}
+
+.next {
+    background: #333;
+    color:white;
+    margin-left: 10px;
+}
+
+img {
+    height: 200px;
+    float:left;
+    margin-right: 10px;
+}
