@@ -1,13 +1,13 @@
 {
-  "name": "basic_api_lecture",
+  "name": "weeend_2_prime",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/app.js"
+    "start": "nodemon server/app.js"
   },
-  "author": "You",
+  "author": "Andy",
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^3.3.5",
